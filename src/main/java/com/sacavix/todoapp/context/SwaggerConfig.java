@@ -19,7 +19,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sacavix.todoapp.controller")) /*Swagger va a escanear todo lo que esté dentro del paquete controler
+                .apis(RequestHandlerSelectors.basePackage("com.sacavix.todoapp.controller")) /*Swagger va a escanear lo que esté dentro del paquete controler
                 y va a buscar todas las clases que tengan @RestController para renderizar los metodos y documentar la api creada*/
                 .paths(PathSelectors.any())
                 .build()
