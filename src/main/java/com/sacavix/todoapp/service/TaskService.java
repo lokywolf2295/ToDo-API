@@ -6,6 +6,8 @@ import com.sacavix.todoapp.persistence.repository.TastkRepository;
 import com.sacavix.todoapp.service.dto.TaskInDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service //le dice al contenedor bin de spring, que cree un bin y lo guarde en ese contenedor, para luego ser identado donde se lo necesite
 public class TaskService {
 
@@ -22,5 +24,9 @@ public class TaskService {
     public Task createTask(TaskInDTO taskInDTO){
         Task task = mapper.map(taskInDTO);
         return this.repository.save(task);
+    }
+
+    public List<Task> findAll() {
+        return this.repository.findAll();
     }
 }
