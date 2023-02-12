@@ -4,6 +4,7 @@ import com.sacavix.todoapp.persistence.entity.Task;
 import com.sacavix.todoapp.persistence.entity.TaskStatus;
 import com.sacavix.todoapp.service.TaskService;
 import com.sacavix.todoapp.service.dto.TaskInDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +32,11 @@ public class TaskController { //esta capa solo se comunica con la capa de servic
     @GetMapping("/status/{status}")
     public List<Task> findAllByStatus(@PathVariable("status")TaskStatus status){
         return this.taskService.findAllByTaskStatus(status);
+    }
+
+    @PatchMapping("/mark_as_finished/{id}")
+    public ResponseEntity<Void> markAsFiniched(@PathVariable("id") Long id) {
+        this.taskService.updateTaskAsFinished(id);
+        return ResponseEntity.noContent().build(); //luego de que se ejecute la tarea devuelve un 204 siempre
     }
 }

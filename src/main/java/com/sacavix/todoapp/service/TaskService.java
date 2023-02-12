@@ -5,6 +5,7 @@ import com.sacavix.todoapp.persistence.entity.Task;
 import com.sacavix.todoapp.persistence.entity.TaskStatus;
 import com.sacavix.todoapp.persistence.repository.TastkRepository;
 import com.sacavix.todoapp.service.dto.TaskInDTO;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,16 +23,26 @@ public class TaskService {
         this.mapper = mapper;
     }
 
+    //Crea la tarea
     public Task createTask(TaskInDTO taskInDTO){
         Task task = mapper.map(taskInDTO);
         return this.repository.save(task);
     }
 
+    //muestra la lista de tareas
     public List<Task> findAll() {
         return this.repository.findAll();
     }
 
+    //muestra la lista de tareas segun su estado
     public List<Task> findAllByTaskStatus(TaskStatus status) {
         return this.repository.findAllByTaskStatus(status);
     }
+
+    //actualiza el estado de la tarea
+    @Transactional
+    public void updateTaskAsFinished(Long id) {
+       this.repository.markTaskAsFinished(id);
+    }
+
 }
