@@ -2,6 +2,7 @@ package com.sacavix.todoapp.service;
 
 import com.sacavix.todoapp.mapper.TaskInDTOToTask;
 import com.sacavix.todoapp.persistence.entity.Task;
+import com.sacavix.todoapp.persistence.entity.TaskStatus;
 import com.sacavix.todoapp.persistence.repository.TastkRepository;
 import com.sacavix.todoapp.service.dto.TaskInDTO;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,9 @@ public class TaskService {
 
     public List<Task> findAll() {
         return this.repository.findAll();
+    }
+
+    public List<Task> findAllByTaskStatus(TaskStatus status) {
+        return this.repository.findAllByTaskStatus(status);
     }
 }

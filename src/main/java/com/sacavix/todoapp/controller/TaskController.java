@@ -1,6 +1,7 @@
 package com.sacavix.todoapp.controller;
 
 import com.sacavix.todoapp.persistence.entity.Task;
+import com.sacavix.todoapp.persistence.entity.TaskStatus;
 import com.sacavix.todoapp.service.TaskService;
 import com.sacavix.todoapp.service.dto.TaskInDTO;
 import org.springframework.web.bind.annotation.*;
@@ -25,5 +26,10 @@ public class TaskController { //esta capa solo se comunica con la capa de servic
     @GetMapping
     public List<Task> findAll(){
         return this.taskService.findAll();
+    }
+
+    @GetMapping("/status/{status}")
+    public List<Task> findAllByStatus(@PathVariable("status")TaskStatus status){
+        return this.taskService.findAllByTaskStatus(status);
     }
 }
