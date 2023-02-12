@@ -42,16 +42,16 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency><!--Permite documentar la API, En un formato entendible por computadora-->
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.9.2</version>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.6.11</version>
 		</dependency>
 
-		<dependency> <!--Esa documentación la renderiza y la convierte en más visual pero versión web-->
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.9.2</version>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>8.0.0.Final</version>
 		</dependency>
 	</dependencies>
 
