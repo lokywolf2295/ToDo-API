@@ -39,4 +39,10 @@ public class TaskController { //esta capa solo se comunica con la capa de servic
         this.taskService.updateTaskAsFinished(id);
         return ResponseEntity.noContent().build(); //luego de que se ejecute la tarea devuelve un 204 siempre
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+        this.taskService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
